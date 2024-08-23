@@ -1105,8 +1105,10 @@ info.onScore(5, function () {
     } else if (val5 == 2) {
         mySprite.setVelocity(150, 150)
         start()
-    } else {
+    } else if (false) {
         info.setLife(5)
+        start()
+    } else {
         start()
     }
 })

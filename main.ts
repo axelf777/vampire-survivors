@@ -1,3 +1,6 @@
+function paus () {
+    game.pushScene()
+}
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (characterAnimations.matchesRule(mySprite, characterAnimations.rule(Predicate.MovingRight))) {
         animation.runImageAnimation(
@@ -123,7 +126,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             b b c c c d d d 5 5 5 5 5 d b . 
             . . . . c c d d d 5 5 5 b b . . 
             . . . . . . c c c c c b b . . . 
-            `, mySprite, 50, 0)
+            `, mySprite, 75, 0)
         pause(200)
     } else if (characterAnimations.matchesRule(mySprite, characterAnimations.rule(Predicate.MovingLeft))) {
         animation.runImageAnimation(
@@ -249,7 +252,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             b b c c c d d d 5 5 5 5 5 d b . 
             . . . . c c d d d 5 5 5 b b . . 
             . . . . . . c c c c c b b . . . 
-            `, mySprite, -50, 0)
+            `, mySprite, -75, 0)
         pause(200)
     } else if (characterAnimations.matchesRule(mySprite, characterAnimations.rule(Predicate.MovingUp))) {
         animation.runImageAnimation(
@@ -375,7 +378,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             b b c c c d d d 5 5 5 5 5 d b . 
             . . . . c c d d d 5 5 5 b b . . 
             . . . . . . c c c c c b b . . . 
-            `, mySprite, 0, -50)
+            `, mySprite, 0, -75)
         pause(200)
     } else {
         animation.runImageAnimation(
@@ -501,7 +504,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             b b c c c d d d 5 5 5 5 5 d b . 
             . . . . c c d d d 5 5 5 b b . . 
             . . . . . . c c c c c b b . . . 
-            `, mySprite, 0, 50)
+            `, mySprite, 0, 75)
         pause(200)
     }
 })
@@ -509,9 +512,29 @@ info.onScore(100, function () {
     game.setGameOverEffect(true, effects.confetti)
     game.gameOver(true)
 })
+info.onScore(1, function () {
+    paus()
+    textSprite = textsprite.create("Två extra projektiler.", 1, 2)
+    textNedreSprite = textsprite.create("Uppåt pil.", 1, 2)
+    textSprite.setPosition(80, 9)
+    textNedreSprite.setPosition(80, 29)
+    textSprite2 = textsprite.create("Rör dig 50% snabbare.", 1, 2)
+    textSprite2 = textsprite.create("Nedåt pil.", 1, 2)
+    textSprite2.setPosition(80, 57)
+    textSprite3 = textsprite.create("Få 5 HP. Vänster pil", 1, 2)
+    textSprite3.setPosition(78, 95)
+    textSprite.setMaxFontHeight(1)
+    textSprite2.setMaxFontHeight(1)
+    textSprite3.setMaxFontHeight(1)
+})
 info.onLifeZero(function () {
     game.setGameOverMessage(false, "GAME OVER!")
     game.gameOver(false)
+})
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
+    sprites.destroy(fiender, effects.fountain, 500)
+    sprites.destroy(projektilVänlig)
+    info.changeScoreBy(1)
 })
 function rörelse () {
     characterAnimations.loopFrames(
@@ -939,7 +962,12 @@ function rörelse () {
     characterAnimations.rule(Predicate.MovingDown)
     )
 }
+let textSprite3: TextSprite = null
+let textSprite2: TextSprite = null
+let textNedreSprite: TextSprite = null
+let textSprite: TextSprite = null
 let projektilVänlig: Sprite = null
+let fiender: Sprite = null
 let mySprite: Sprite = null
 mySprite = sprites.create(img`
     ........................
@@ -967,6 +995,32 @@ mySprite = sprites.create(img`
     ........................
     ........................
     `, SpriteKind.Player)
+fiender = sprites.create(img`
+    ........................
+    ........................
+    ........................
+    ........................
+    ..........ffff..........
+    ........ff1111ff........
+    .......fb111111bf.......
+    .......f11111111f.......
+    ......fd11111111df......
+    ......fd11111111df......
+    ......fddd1111dddf......
+    ......fbdbfddfbdbf......
+    ......fcdcf11fcdcf......
+    .......fb111111ffff.....
+    ......fffcdb1bc111cf....
+    ....fc111cbfbf1b1b1f....
+    ....f1b1b1ffffbfbfbf....
+    ....fbfbfffffff.........
+    .........fffff..........
+    ..........fff...........
+    ........................
+    ........................
+    ........................
+    ........................
+    `, SpriteKind.Enemy)
 controller.moveSprite(mySprite, 100, 100)
 info.setLife(3)
 tiles.setCurrentTilemap(tilemap`level2`)

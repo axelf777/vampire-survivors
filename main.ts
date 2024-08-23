@@ -453,7 +453,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 b b c c c d d d 5 5 5 5 5 d b . 
                 . . . . c c d d d 5 5 5 b b . . 
                 . . . . . . c c c c c b b . . . 
-                `, mySprite, 0, 100)
+                `, mySprite, 0, 150)
             projektilVänlig = sprites.createProjectileFromSprite(img`
                 . . . . . . . . . . b 5 b . . . 
                 . . . . . . . . . b 5 b . . . . 
@@ -471,7 +471,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 b b c c c d d d 5 5 5 5 5 d b . 
                 . . . . c c d d d 5 5 5 b b . . 
                 . . . . . . c c c c c b b . . . 
-                `, mySprite, 100, 0)
+                `, mySprite, 150, 0)
             projektilVänlig = sprites.createProjectileFromSprite(img`
                 . . . . . . . . . . b 5 b . . . 
                 . . . . . . . . . b 5 b . . . . 
@@ -489,7 +489,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 b b c c c d d d 5 5 5 5 5 d b . 
                 . . . . c c d d d 5 5 5 b b . . 
                 . . . . . . c c c c c b b . . . 
-                `, mySprite, 0, -100)
+                `, mySprite, 0, -150)
             pause(200)
         } else {
             projektilVänlig = sprites.createProjectileFromSprite(img`
@@ -509,7 +509,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 b b c c c d d d 5 5 5 5 5 d b . 
                 . . . . c c d d d 5 5 5 b b . . 
                 . . . . . . c c c c c b b . . . 
-                `, mySprite, 100, 0)
+                `, mySprite, 150, 0)
             pause(200)
         }
     } else if (characterAnimations.matchesRule(mySprite, characterAnimations.rule(Predicate.MovingLeft))) {
@@ -637,7 +637,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 b b c c c d d d 5 5 5 5 5 d b . 
                 . . . . c c d d d 5 5 5 b b . . 
                 . . . . . . c c c c c b b . . . 
-                `, mySprite, 0, 100)
+                `, mySprite, 0, 150)
             projektilVänlig = sprites.createProjectileFromSprite(img`
                 . . . . . . . . . . b 5 b . . . 
                 . . . . . . . . . b 5 b . . . . 
@@ -655,7 +655,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 b b c c c d d d 5 5 5 5 5 d b . 
                 . . . . c c d d d 5 5 5 b b . . 
                 . . . . . . c c c c c b b . . . 
-                `, mySprite, -100, 0)
+                `, mySprite, -150, 0)
             projektilVänlig = sprites.createProjectileFromSprite(img`
                 . . . . . . . . . . b 5 b . . . 
                 . . . . . . . . . b 5 b . . . . 
@@ -673,7 +673,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 b b c c c d d d 5 5 5 5 5 d b . 
                 . . . . c c d d d 5 5 5 b b . . 
                 . . . . . . c c c c c b b . . . 
-                `, mySprite, 0, -100)
+                `, mySprite, 0, -150)
             pause(200)
         } else {
             projektilVänlig = sprites.createProjectileFromSprite(img`
@@ -693,7 +693,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 b b c c c d d d 5 5 5 5 5 d b . 
                 . . . . c c d d d 5 5 5 b b . . 
                 . . . . . . c c c c c b b . . . 
-                `, mySprite, -100, 0)
+                `, mySprite, -150, 0)
             pause(200)
         }
     } else if (characterAnimations.matchesRule(mySprite, characterAnimations.rule(Predicate.MovingUp))) {
@@ -821,7 +821,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 b b c c c d d d 5 5 5 5 5 d b . 
                 . . . . c c d d d 5 5 5 b b . . 
                 . . . . . . c c c c c b b . . . 
-                `, mySprite, 100, 0)
+                `, mySprite, 150, 0)
             projektilVänlig = sprites.createProjectileFromSprite(img`
                 . . . . . . . . . . b 5 b . . . 
                 . . . . . . . . . b 5 b . . . . 
@@ -839,7 +839,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 b b c c c d d d 5 5 5 5 5 d b . 
                 . . . . c c d d d 5 5 5 b b . . 
                 . . . . . . c c c c c b b . . . 
-                `, mySprite, 0, -100)
+                `, mySprite, 0, -150)
             projektilVänlig = sprites.createProjectileFromSprite(img`
                 . . . . . . . . . . b 5 b . . . 
                 . . . . . . . . . b 5 b . . . . 
@@ -857,7 +857,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 b b c c c d d d 5 5 5 5 5 d b . 
                 . . . . c c d d d 5 5 5 b b . . 
                 . . . . . . c c c c c b b . . . 
-                `, mySprite, -100, 0)
+                `, mySprite, -150, 0)
             pause(200)
         } else {
             projektilVänlig = sprites.createProjectileFromSprite(img`
@@ -877,7 +877,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 b b c c c d d d 5 5 5 5 5 d b . 
                 . . . . c c d d d 5 5 5 b b . . 
                 . . . . . . c c c c c b b . . . 
-                `, mySprite, 0, -100)
+                `, mySprite, 0, -150)
             pause(200)
         }
     } else {
@@ -1005,7 +1005,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 b b c c c d d d 5 5 5 5 5 d b . 
                 . . . . c c d d d 5 5 5 b b . . 
                 . . . . . . c c c c c b b . . . 
-                `, mySprite, 100, 0)
+                `, mySprite, 150, 0)
             projektilVänlig = sprites.createProjectileFromSprite(img`
                 . . . . . . . . . . b 5 b . . . 
                 . . . . . . . . . b 5 b . . . . 
@@ -1023,7 +1023,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 b b c c c d d d 5 5 5 5 5 d b . 
                 . . . . c c d d d 5 5 5 b b . . 
                 . . . . . . c c c c c b b . . . 
-                `, mySprite, 0, 100)
+                `, mySprite, 0, 150)
             projektilVänlig = sprites.createProjectileFromSprite(img`
                 . . . . . . . . . . b 5 b . . . 
                 . . . . . . . . . b 5 b . . . . 
@@ -1041,7 +1041,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 b b c c c d d d 5 5 5 5 5 d b . 
                 . . . . c c d d d 5 5 5 b b . . 
                 . . . . . . c c c c c b b . . . 
-                `, mySprite, -100, 0)
+                `, mySprite, -150, 0)
             pause(200)
         } else {
             projektilVänlig = sprites.createProjectileFromSprite(img`
@@ -1061,7 +1061,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 b b c c c d d d 5 5 5 5 5 d b . 
                 . . . . c c d d d 5 5 5 b b . . 
                 . . . . . . c c c c c b b . . . 
-                `, mySprite, 0, 100)
+                `, mySprite, 0, 150)
             pause(200)
         }
     }
@@ -1104,13 +1104,15 @@ info.onScore(5, function () {
         start()
     } else if (val5 == 2) {
         mySprite.setVelocity(150, 150)
+        start()
     } else {
         info.setLife(5)
+        start()
     }
 })
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
-    sprites.destroy(fiender, effects.fountain, 500)
-    sprites.destroy(projektilVänlig)
+    sprites.destroy(otherSprite, effects.fountain, 500)
+    sprites.destroy(sprite)
     info.changeScoreBy(1)
 })
 function rörelse () {

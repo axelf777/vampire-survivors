@@ -1070,6 +1070,10 @@ info.onScore(100, function () {
     game.setGameOverEffect(true, effects.confetti)
     game.gameOver(true)
 })
+sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, otherSprite) {
+    info.changeLifeBy(-1)
+    pause(1000)
+})
 info.onLifeZero(function () {
     game.setGameOverMessage(false, "GAME OVER!")
     game.gameOver(false)
@@ -1092,12 +1096,16 @@ info.onScore(5, function () {
     textNedreSprite3 = textsprite.create("Välj nr 3.", 1, 2)
     textSprite3.setPosition(75, 100)
     textNedreSprite3.setPosition(75, 115)
-    pause(10000)
+    pause(8000)
     val5 = game.askForNumber("", 1)
     if (val5 == 1) {
         val1 = 0
         extraProjektiler = 1
         start()
+    } else if (val5 == 2) {
+        mySprite.setVelocity(150, 150)
+    } else {
+        info.setLife(5)
     }
 })
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
@@ -1577,7 +1585,7 @@ scene.cameraFollowSprite(mySprite)
 mySprite.sayText(":)", 5000, true)
 characterAnimations.setCharacterAnimationsEnabled(mySprite, true)
 extraProjektiler = 0
-game.onUpdateInterval(2000, function () {
+game.onUpdateInterval(1500, function () {
     fiender = sprites.create(img`
         ........................
         ........................

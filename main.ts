@@ -1,6 +1,13 @@
 function paus () {
     game.pushScene()
 }
+controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (val1 == 1) {
+        val1 = 0
+        extraProjektiler = 1
+        start()
+    }
+})
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (characterAnimations.matchesRule(mySprite, characterAnimations.rule(Predicate.MovingRight))) {
         animation.runImageAnimation(
@@ -109,25 +116,83 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         100,
         false
         )
-        projektilVänlig = sprites.createProjectileFromSprite(img`
-            . . . . . . . . . . b 5 b . . . 
-            . . . . . . . . . b 5 b . . . . 
-            . . . . . . b b b b b b . . . . 
-            . . . . . b b 5 5 5 5 5 b . . . 
-            . . . . b b 5 d 1 f 5 d 4 c . . 
-            . . . . b 5 5 1 f f d d 4 4 4 b 
-            . . . . b 5 5 d f b 4 4 4 4 b . 
-            . . . b d 5 5 5 5 4 4 4 4 b . . 
-            . b b d d d 5 5 5 5 5 5 5 b . . 
-            b d d d b b b 5 5 5 5 5 5 5 b . 
-            c d d b 5 5 d c 5 5 5 5 5 5 b . 
-            c b b d 5 d c d 5 5 5 5 5 5 b . 
-            c b 5 5 b c d d 5 5 5 5 5 5 b . 
-            b b c c c d d d 5 5 5 5 5 d b . 
-            . . . . c c d d d 5 5 5 b b . . 
-            . . . . . . c c c c c b b . . . 
-            `, mySprite, 75, 0)
-        pause(200)
+        if (extraProjektiler == 1) {
+            projektilVänlig = sprites.createProjectileFromSprite(img`
+                . . . . . . . . . . b 5 b . . . 
+                . . . . . . . . . b 5 b . . . . 
+                . . . . . . b b b b b b . . . . 
+                . . . . . b b 5 5 5 5 5 b . . . 
+                . . . . b b 5 d 1 f 5 d 4 c . . 
+                . . . . b 5 5 1 f f d d 4 4 4 b 
+                . . . . b 5 5 d f b 4 4 4 4 b . 
+                . . . b d 5 5 5 5 4 4 4 4 b . . 
+                . b b d d d 5 5 5 5 5 5 5 b . . 
+                b d d d b b b 5 5 5 5 5 5 5 b . 
+                c d d b 5 5 d c 5 5 5 5 5 5 b . 
+                c b b d 5 d c d 5 5 5 5 5 5 b . 
+                c b 5 5 b c d d 5 5 5 5 5 5 b . 
+                b b c c c d d d 5 5 5 5 5 d b . 
+                . . . . c c d d d 5 5 5 b b . . 
+                . . . . . . c c c c c b b . . . 
+                `, mySprite, 50, 0)
+            projektilVänlig = sprites.createProjectileFromSprite(img`
+                . . . . . . . . . . b 5 b . . . 
+                . . . . . . . . . b 5 b . . . . 
+                . . . . . . b b b b b b . . . . 
+                . . . . . b b 5 5 5 5 5 b . . . 
+                . . . . b b 5 d 1 f 5 d 4 c . . 
+                . . . . b 5 5 1 f f d d 4 4 4 b 
+                . . . . b 5 5 d f b 4 4 4 4 b . 
+                . . . b d 5 5 5 5 4 4 4 4 b . . 
+                . b b d d d 5 5 5 5 5 5 5 b . . 
+                b d d d b b b 5 5 5 5 5 5 5 b . 
+                c d d b 5 5 d c 5 5 5 5 5 5 b . 
+                c b b d 5 d c d 5 5 5 5 5 5 b . 
+                c b 5 5 b c d d 5 5 5 5 5 5 b . 
+                b b c c c d d d 5 5 5 5 5 d b . 
+                . . . . c c d d d 5 5 5 b b . . 
+                . . . . . . c c c c c b b . . . 
+                `, mySprite, 75, 0)
+            projektilVänlig = sprites.createProjectileFromSprite(img`
+                . . . . . . . . . . b 5 b . . . 
+                . . . . . . . . . b 5 b . . . . 
+                . . . . . . b b b b b b . . . . 
+                . . . . . b b 5 5 5 5 5 b . . . 
+                . . . . b b 5 d 1 f 5 d 4 c . . 
+                . . . . b 5 5 1 f f d d 4 4 4 b 
+                . . . . b 5 5 d f b 4 4 4 4 b . 
+                . . . b d 5 5 5 5 4 4 4 4 b . . 
+                . b b d d d 5 5 5 5 5 5 5 b . . 
+                b d d d b b b 5 5 5 5 5 5 5 b . 
+                c d d b 5 5 d c 5 5 5 5 5 5 b . 
+                c b b d 5 d c d 5 5 5 5 5 5 b . 
+                c b 5 5 b c d d 5 5 5 5 5 5 b . 
+                b b c c c d d d 5 5 5 5 5 d b . 
+                . . . . c c d d d 5 5 5 b b . . 
+                . . . . . . c c c c c b b . . . 
+                `, mySprite, 100, 0)
+            pause(200)
+        } else {
+            projektilVänlig = sprites.createProjectileFromSprite(img`
+                . . . . . . . . . . b 5 b . . . 
+                . . . . . . . . . b 5 b . . . . 
+                . . . . . . b b b b b b . . . . 
+                . . . . . b b 5 5 5 5 5 b . . . 
+                . . . . b b 5 d 1 f 5 d 4 c . . 
+                . . . . b 5 5 1 f f d d 4 4 4 b 
+                . . . . b 5 5 d f b 4 4 4 4 b . 
+                . . . b d 5 5 5 5 4 4 4 4 b . . 
+                . b b d d d 5 5 5 5 5 5 5 b . . 
+                b d d d b b b 5 5 5 5 5 5 5 b . 
+                c d d b 5 5 d c 5 5 5 5 5 5 b . 
+                c b b d 5 d c d 5 5 5 5 5 5 b . 
+                c b 5 5 b c d d 5 5 5 5 5 5 b . 
+                b b c c c d d d 5 5 5 5 5 d b . 
+                . . . . c c d d d 5 5 5 b b . . 
+                . . . . . . c c c c c b b . . . 
+                `, mySprite, 75, 0)
+            pause(200)
+        }
     } else if (characterAnimations.matchesRule(mySprite, characterAnimations.rule(Predicate.MovingLeft))) {
         animation.runImageAnimation(
         mySprite,
@@ -235,25 +300,83 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         100,
         false
         )
-        projektilVänlig = sprites.createProjectileFromSprite(img`
-            . . . . . . . . . . b 5 b . . . 
-            . . . . . . . . . b 5 b . . . . 
-            . . . . . . b b b b b b . . . . 
-            . . . . . b b 5 5 5 5 5 b . . . 
-            . . . . b b 5 d 1 f 5 d 4 c . . 
-            . . . . b 5 5 1 f f d d 4 4 4 b 
-            . . . . b 5 5 d f b 4 4 4 4 b . 
-            . . . b d 5 5 5 5 4 4 4 4 b . . 
-            . b b d d d 5 5 5 5 5 5 5 b . . 
-            b d d d b b b 5 5 5 5 5 5 5 b . 
-            c d d b 5 5 d c 5 5 5 5 5 5 b . 
-            c b b d 5 d c d 5 5 5 5 5 5 b . 
-            c b 5 5 b c d d 5 5 5 5 5 5 b . 
-            b b c c c d d d 5 5 5 5 5 d b . 
-            . . . . c c d d d 5 5 5 b b . . 
-            . . . . . . c c c c c b b . . . 
-            `, mySprite, -75, 0)
-        pause(200)
+        if (extraProjektiler == 1) {
+            projektilVänlig = sprites.createProjectileFromSprite(img`
+                . . . . . . . . . . b 5 b . . . 
+                . . . . . . . . . b 5 b . . . . 
+                . . . . . . b b b b b b . . . . 
+                . . . . . b b 5 5 5 5 5 b . . . 
+                . . . . b b 5 d 1 f 5 d 4 c . . 
+                . . . . b 5 5 1 f f d d 4 4 4 b 
+                . . . . b 5 5 d f b 4 4 4 4 b . 
+                . . . b d 5 5 5 5 4 4 4 4 b . . 
+                . b b d d d 5 5 5 5 5 5 5 b . . 
+                b d d d b b b 5 5 5 5 5 5 5 b . 
+                c d d b 5 5 d c 5 5 5 5 5 5 b . 
+                c b b d 5 d c d 5 5 5 5 5 5 b . 
+                c b 5 5 b c d d 5 5 5 5 5 5 b . 
+                b b c c c d d d 5 5 5 5 5 d b . 
+                . . . . c c d d d 5 5 5 b b . . 
+                . . . . . . c c c c c b b . . . 
+                `, mySprite, -50, 0)
+            projektilVänlig = sprites.createProjectileFromSprite(img`
+                . . . . . . . . . . b 5 b . . . 
+                . . . . . . . . . b 5 b . . . . 
+                . . . . . . b b b b b b . . . . 
+                . . . . . b b 5 5 5 5 5 b . . . 
+                . . . . b b 5 d 1 f 5 d 4 c . . 
+                . . . . b 5 5 1 f f d d 4 4 4 b 
+                . . . . b 5 5 d f b 4 4 4 4 b . 
+                . . . b d 5 5 5 5 4 4 4 4 b . . 
+                . b b d d d 5 5 5 5 5 5 5 b . . 
+                b d d d b b b 5 5 5 5 5 5 5 b . 
+                c d d b 5 5 d c 5 5 5 5 5 5 b . 
+                c b b d 5 d c d 5 5 5 5 5 5 b . 
+                c b 5 5 b c d d 5 5 5 5 5 5 b . 
+                b b c c c d d d 5 5 5 5 5 d b . 
+                . . . . c c d d d 5 5 5 b b . . 
+                . . . . . . c c c c c b b . . . 
+                `, mySprite, -75, 0)
+            projektilVänlig = sprites.createProjectileFromSprite(img`
+                . . . . . . . . . . b 5 b . . . 
+                . . . . . . . . . b 5 b . . . . 
+                . . . . . . b b b b b b . . . . 
+                . . . . . b b 5 5 5 5 5 b . . . 
+                . . . . b b 5 d 1 f 5 d 4 c . . 
+                . . . . b 5 5 1 f f d d 4 4 4 b 
+                . . . . b 5 5 d f b 4 4 4 4 b . 
+                . . . b d 5 5 5 5 4 4 4 4 b . . 
+                . b b d d d 5 5 5 5 5 5 5 b . . 
+                b d d d b b b 5 5 5 5 5 5 5 b . 
+                c d d b 5 5 d c 5 5 5 5 5 5 b . 
+                c b b d 5 d c d 5 5 5 5 5 5 b . 
+                c b 5 5 b c d d 5 5 5 5 5 5 b . 
+                b b c c c d d d 5 5 5 5 5 d b . 
+                . . . . c c d d d 5 5 5 b b . . 
+                . . . . . . c c c c c b b . . . 
+                `, mySprite, -100, 0)
+            pause(200)
+        } else {
+            projektilVänlig = sprites.createProjectileFromSprite(img`
+                . . . . . . . . . . b 5 b . . . 
+                . . . . . . . . . b 5 b . . . . 
+                . . . . . . b b b b b b . . . . 
+                . . . . . b b 5 5 5 5 5 b . . . 
+                . . . . b b 5 d 1 f 5 d 4 c . . 
+                . . . . b 5 5 1 f f d d 4 4 4 b 
+                . . . . b 5 5 d f b 4 4 4 4 b . 
+                . . . b d 5 5 5 5 4 4 4 4 b . . 
+                . b b d d d 5 5 5 5 5 5 5 b . . 
+                b d d d b b b 5 5 5 5 5 5 5 b . 
+                c d d b 5 5 d c 5 5 5 5 5 5 b . 
+                c b b d 5 d c d 5 5 5 5 5 5 b . 
+                c b 5 5 b c d d 5 5 5 5 5 5 b . 
+                b b c c c d d d 5 5 5 5 5 d b . 
+                . . . . c c d d d 5 5 5 b b . . 
+                . . . . . . c c c c c b b . . . 
+                `, mySprite, -75, 0)
+            pause(200)
+        }
     } else if (characterAnimations.matchesRule(mySprite, characterAnimations.rule(Predicate.MovingUp))) {
         animation.runImageAnimation(
         mySprite,
@@ -361,25 +484,83 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         100,
         false
         )
-        projektilVänlig = sprites.createProjectileFromSprite(img`
-            . . . . . . . . . . b 5 b . . . 
-            . . . . . . . . . b 5 b . . . . 
-            . . . . . . b b b b b b . . . . 
-            . . . . . b b 5 5 5 5 5 b . . . 
-            . . . . b b 5 d 1 f 5 d 4 c . . 
-            . . . . b 5 5 1 f f d d 4 4 4 b 
-            . . . . b 5 5 d f b 4 4 4 4 b . 
-            . . . b d 5 5 5 5 4 4 4 4 b . . 
-            . b b d d d 5 5 5 5 5 5 5 b . . 
-            b d d d b b b 5 5 5 5 5 5 5 b . 
-            c d d b 5 5 d c 5 5 5 5 5 5 b . 
-            c b b d 5 d c d 5 5 5 5 5 5 b . 
-            c b 5 5 b c d d 5 5 5 5 5 5 b . 
-            b b c c c d d d 5 5 5 5 5 d b . 
-            . . . . c c d d d 5 5 5 b b . . 
-            . . . . . . c c c c c b b . . . 
-            `, mySprite, 0, -75)
-        pause(200)
+        if (extraProjektiler == 1) {
+            projektilVänlig = sprites.createProjectileFromSprite(img`
+                . . . . . . . . . . b 5 b . . . 
+                . . . . . . . . . b 5 b . . . . 
+                . . . . . . b b b b b b . . . . 
+                . . . . . b b 5 5 5 5 5 b . . . 
+                . . . . b b 5 d 1 f 5 d 4 c . . 
+                . . . . b 5 5 1 f f d d 4 4 4 b 
+                . . . . b 5 5 d f b 4 4 4 4 b . 
+                . . . b d 5 5 5 5 4 4 4 4 b . . 
+                . b b d d d 5 5 5 5 5 5 5 b . . 
+                b d d d b b b 5 5 5 5 5 5 5 b . 
+                c d d b 5 5 d c 5 5 5 5 5 5 b . 
+                c b b d 5 d c d 5 5 5 5 5 5 b . 
+                c b 5 5 b c d d 5 5 5 5 5 5 b . 
+                b b c c c d d d 5 5 5 5 5 d b . 
+                . . . . c c d d d 5 5 5 b b . . 
+                . . . . . . c c c c c b b . . . 
+                `, mySprite, 0, -50)
+            projektilVänlig = sprites.createProjectileFromSprite(img`
+                . . . . . . . . . . b 5 b . . . 
+                . . . . . . . . . b 5 b . . . . 
+                . . . . . . b b b b b b . . . . 
+                . . . . . b b 5 5 5 5 5 b . . . 
+                . . . . b b 5 d 1 f 5 d 4 c . . 
+                . . . . b 5 5 1 f f d d 4 4 4 b 
+                . . . . b 5 5 d f b 4 4 4 4 b . 
+                . . . b d 5 5 5 5 4 4 4 4 b . . 
+                . b b d d d 5 5 5 5 5 5 5 b . . 
+                b d d d b b b 5 5 5 5 5 5 5 b . 
+                c d d b 5 5 d c 5 5 5 5 5 5 b . 
+                c b b d 5 d c d 5 5 5 5 5 5 b . 
+                c b 5 5 b c d d 5 5 5 5 5 5 b . 
+                b b c c c d d d 5 5 5 5 5 d b . 
+                . . . . c c d d d 5 5 5 b b . . 
+                . . . . . . c c c c c b b . . . 
+                `, mySprite, 0, -75)
+            projektilVänlig = sprites.createProjectileFromSprite(img`
+                . . . . . . . . . . b 5 b . . . 
+                . . . . . . . . . b 5 b . . . . 
+                . . . . . . b b b b b b . . . . 
+                . . . . . b b 5 5 5 5 5 b . . . 
+                . . . . b b 5 d 1 f 5 d 4 c . . 
+                . . . . b 5 5 1 f f d d 4 4 4 b 
+                . . . . b 5 5 d f b 4 4 4 4 b . 
+                . . . b d 5 5 5 5 4 4 4 4 b . . 
+                . b b d d d 5 5 5 5 5 5 5 b . . 
+                b d d d b b b 5 5 5 5 5 5 5 b . 
+                c d d b 5 5 d c 5 5 5 5 5 5 b . 
+                c b b d 5 d c d 5 5 5 5 5 5 b . 
+                c b 5 5 b c d d 5 5 5 5 5 5 b . 
+                b b c c c d d d 5 5 5 5 5 d b . 
+                . . . . c c d d d 5 5 5 b b . . 
+                . . . . . . c c c c c b b . . . 
+                `, mySprite, 0, -100)
+            pause(200)
+        } else {
+            projektilVänlig = sprites.createProjectileFromSprite(img`
+                . . . . . . . . . . b 5 b . . . 
+                . . . . . . . . . b 5 b . . . . 
+                . . . . . . b b b b b b . . . . 
+                . . . . . b b 5 5 5 5 5 b . . . 
+                . . . . b b 5 d 1 f 5 d 4 c . . 
+                . . . . b 5 5 1 f f d d 4 4 4 b 
+                . . . . b 5 5 d f b 4 4 4 4 b . 
+                . . . b d 5 5 5 5 4 4 4 4 b . . 
+                . b b d d d 5 5 5 5 5 5 5 b . . 
+                b d d d b b b 5 5 5 5 5 5 5 b . 
+                c d d b 5 5 d c 5 5 5 5 5 5 b . 
+                c b b d 5 d c d 5 5 5 5 5 5 b . 
+                c b 5 5 b c d d 5 5 5 5 5 5 b . 
+                b b c c c d d d 5 5 5 5 5 d b . 
+                . . . . c c d d d 5 5 5 b b . . 
+                . . . . . . c c c c c b b . . . 
+                `, mySprite, 0, -75)
+            pause(200)
+        }
     } else {
         animation.runImageAnimation(
         mySprite,
@@ -487,25 +668,83 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         100,
         false
         )
-        projektilVänlig = sprites.createProjectileFromSprite(img`
-            . . . . . . . . . . b 5 b . . . 
-            . . . . . . . . . b 5 b . . . . 
-            . . . . . . b b b b b b . . . . 
-            . . . . . b b 5 5 5 5 5 b . . . 
-            . . . . b b 5 d 1 f 5 d 4 c . . 
-            . . . . b 5 5 1 f f d d 4 4 4 b 
-            . . . . b 5 5 d f b 4 4 4 4 b . 
-            . . . b d 5 5 5 5 4 4 4 4 b . . 
-            . b b d d d 5 5 5 5 5 5 5 b . . 
-            b d d d b b b 5 5 5 5 5 5 5 b . 
-            c d d b 5 5 d c 5 5 5 5 5 5 b . 
-            c b b d 5 d c d 5 5 5 5 5 5 b . 
-            c b 5 5 b c d d 5 5 5 5 5 5 b . 
-            b b c c c d d d 5 5 5 5 5 d b . 
-            . . . . c c d d d 5 5 5 b b . . 
-            . . . . . . c c c c c b b . . . 
-            `, mySprite, 0, 75)
-        pause(200)
+        if (extraProjektiler == 1) {
+            projektilVänlig = sprites.createProjectileFromSprite(img`
+                . . . . . . . . . . b 5 b . . . 
+                . . . . . . . . . b 5 b . . . . 
+                . . . . . . b b b b b b . . . . 
+                . . . . . b b 5 5 5 5 5 b . . . 
+                . . . . b b 5 d 1 f 5 d 4 c . . 
+                . . . . b 5 5 1 f f d d 4 4 4 b 
+                . . . . b 5 5 d f b 4 4 4 4 b . 
+                . . . b d 5 5 5 5 4 4 4 4 b . . 
+                . b b d d d 5 5 5 5 5 5 5 b . . 
+                b d d d b b b 5 5 5 5 5 5 5 b . 
+                c d d b 5 5 d c 5 5 5 5 5 5 b . 
+                c b b d 5 d c d 5 5 5 5 5 5 b . 
+                c b 5 5 b c d d 5 5 5 5 5 5 b . 
+                b b c c c d d d 5 5 5 5 5 d b . 
+                . . . . c c d d d 5 5 5 b b . . 
+                . . . . . . c c c c c b b . . . 
+                `, mySprite, 0, 50)
+            projektilVänlig = sprites.createProjectileFromSprite(img`
+                . . . . . . . . . . b 5 b . . . 
+                . . . . . . . . . b 5 b . . . . 
+                . . . . . . b b b b b b . . . . 
+                . . . . . b b 5 5 5 5 5 b . . . 
+                . . . . b b 5 d 1 f 5 d 4 c . . 
+                . . . . b 5 5 1 f f d d 4 4 4 b 
+                . . . . b 5 5 d f b 4 4 4 4 b . 
+                . . . b d 5 5 5 5 4 4 4 4 b . . 
+                . b b d d d 5 5 5 5 5 5 5 b . . 
+                b d d d b b b 5 5 5 5 5 5 5 b . 
+                c d d b 5 5 d c 5 5 5 5 5 5 b . 
+                c b b d 5 d c d 5 5 5 5 5 5 b . 
+                c b 5 5 b c d d 5 5 5 5 5 5 b . 
+                b b c c c d d d 5 5 5 5 5 d b . 
+                . . . . c c d d d 5 5 5 b b . . 
+                . . . . . . c c c c c b b . . . 
+                `, mySprite, 0, 75)
+            projektilVänlig = sprites.createProjectileFromSprite(img`
+                . . . . . . . . . . b 5 b . . . 
+                . . . . . . . . . b 5 b . . . . 
+                . . . . . . b b b b b b . . . . 
+                . . . . . b b 5 5 5 5 5 b . . . 
+                . . . . b b 5 d 1 f 5 d 4 c . . 
+                . . . . b 5 5 1 f f d d 4 4 4 b 
+                . . . . b 5 5 d f b 4 4 4 4 b . 
+                . . . b d 5 5 5 5 4 4 4 4 b . . 
+                . b b d d d 5 5 5 5 5 5 5 b . . 
+                b d d d b b b 5 5 5 5 5 5 5 b . 
+                c d d b 5 5 d c 5 5 5 5 5 5 b . 
+                c b b d 5 d c d 5 5 5 5 5 5 b . 
+                c b 5 5 b c d d 5 5 5 5 5 5 b . 
+                b b c c c d d d 5 5 5 5 5 d b . 
+                . . . . c c d d d 5 5 5 b b . . 
+                . . . . . . c c c c c b b . . . 
+                `, mySprite, 0, 100)
+            pause(200)
+        } else {
+            projektilVänlig = sprites.createProjectileFromSprite(img`
+                . . . . . . . . . . b 5 b . . . 
+                . . . . . . . . . b 5 b . . . . 
+                . . . . . . b b b b b b . . . . 
+                . . . . . b b 5 5 5 5 5 b . . . 
+                . . . . b b 5 d 1 f 5 d 4 c . . 
+                . . . . b 5 5 1 f f d d 4 4 4 b 
+                . . . . b 5 5 d f b 4 4 4 4 b . 
+                . . . b d 5 5 5 5 4 4 4 4 b . . 
+                . b b d d d 5 5 5 5 5 5 5 b . . 
+                b d d d b b b 5 5 5 5 5 5 5 b . 
+                c d d b 5 5 d c 5 5 5 5 5 5 b . 
+                c b b d 5 d c d 5 5 5 5 5 5 b . 
+                c b 5 5 b c d d 5 5 5 5 5 5 b . 
+                b b c c c d d d 5 5 5 5 5 d b . 
+                . . . . c c d d d 5 5 5 b b . . 
+                . . . . . . c c c c c b b . . . 
+                `, mySprite, 0, 75)
+            pause(200)
+        }
     }
 })
 info.onScore(100, function () {
@@ -514,23 +753,31 @@ info.onScore(100, function () {
 })
 info.onScore(1, function () {
     paus()
+    val1 = 1
     textSprite = textsprite.create("Två extra projektiler.", 1, 2)
     textNedreSprite = textsprite.create("Uppåt pil.", 1, 2)
-    textSprite.setPosition(80, 9)
-    textNedreSprite.setPosition(80, 29)
+    textSprite.setPosition(75, 9)
+    textNedreSprite.setPosition(75, 24)
     textSprite2 = textsprite.create("Rör dig 50% snabbare.", 1, 2)
-    textSprite2 = textsprite.create("Nedåt pil.", 1, 2)
-    textSprite2.setPosition(80, 57)
-    textSprite3 = textsprite.create("Få 5 HP. Vänster pil", 1, 2)
-    textSprite3.setPosition(78, 95)
-    textSprite.setMaxFontHeight(1)
-    textSprite2.setMaxFontHeight(1)
-    textSprite3.setMaxFontHeight(1)
+    textNedreSprite2 = textsprite.create("Nedåt pil.", 1, 2)
+    textSprite2.setPosition(75, 57)
+    textNedreSprite2.setPosition(75, 72)
+    textSprite3 = textsprite.create("Få 5 HP.", 1, 2)
+    textNedreSprite3 = textsprite.create("Vänster pil", 1, 2)
+    textSprite3.setPosition(75, 100)
+    textNedreSprite3.setPosition(75, 115)
+    pause(2000)
 })
+function val () {
+	
+}
 info.onLifeZero(function () {
     game.setGameOverMessage(false, "GAME OVER!")
     game.gameOver(false)
 })
+function start () {
+    game.popScene()
+}
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
     sprites.destroy(fiender, effects.fountain, 500)
     sprites.destroy(projektilVänlig)
@@ -962,11 +1209,15 @@ function rörelse () {
     characterAnimations.rule(Predicate.MovingDown)
     )
 }
+let textNedreSprite3: TextSprite = null
 let textSprite3: TextSprite = null
+let textNedreSprite2: TextSprite = null
 let textSprite2: TextSprite = null
 let textNedreSprite: TextSprite = null
 let textSprite: TextSprite = null
 let projektilVänlig: Sprite = null
+let extraProjektiler = 0
+let val1 = 0
 let fiender: Sprite = null
 let mySprite: Sprite = null
 mySprite = sprites.create(img`
@@ -1028,6 +1279,8 @@ mySprite.setStayInScreen(true)
 scene.cameraFollowSprite(mySprite)
 mySprite.sayText(":)", 5000, true)
 characterAnimations.setCharacterAnimationsEnabled(mySprite, true)
+val1 = 0
+extraProjektiler = 0
 forever(function () {
     rörelse()
 })

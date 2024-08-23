@@ -1,13 +1,6 @@
 function paus () {
     game.pushScene()
 }
-controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (val1 == 1) {
-        val1 = 0
-        extraProjektiler = 1
-        start()
-    }
-})
 function rörelse2 () {
     characterAnimations.loopFrames(
     fiender,
@@ -1077,7 +1070,14 @@ info.onScore(100, function () {
     game.setGameOverEffect(true, effects.confetti)
     game.gameOver(true)
 })
-info.onScore(1, function () {
+info.onLifeZero(function () {
+    game.setGameOverMessage(false, "GAME OVER!")
+    game.gameOver(false)
+})
+function start () {
+    game.popScene()
+}
+info.onScore(5, function () {
     paus()
     val1 = 1
     textSprite = textsprite.create("Två extra projektiler.", 1, 2)
@@ -1092,18 +1092,14 @@ info.onScore(1, function () {
     textNedreSprite3 = textsprite.create("Vänster pil", 1, 2)
     textSprite3.setPosition(75, 100)
     textNedreSprite3.setPosition(75, 115)
-    pause(2000)
+    pause(10000)
+    val5 = game.askForNumber("", 1)
+    if (val5 == 1) {
+        val1 = 0
+        extraProjektiler = 1
+        start()
+    }
 })
-function val () {
-	
-}
-info.onLifeZero(function () {
-    game.setGameOverMessage(false, "GAME OVER!")
-    game.gameOver(false)
-})
-function start () {
-    game.popScene()
-}
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
     sprites.destroy(fiender, effects.fountain, 500)
     sprites.destroy(projektilVänlig)
@@ -1535,16 +1531,17 @@ function rörelse () {
     characterAnimations.rule(Predicate.MovingDown)
     )
 }
+let val5 = 0
 let textNedreSprite3: TextSprite = null
 let textSprite3: TextSprite = null
 let textNedreSprite2: TextSprite = null
 let textSprite2: TextSprite = null
 let textNedreSprite: TextSprite = null
 let textSprite: TextSprite = null
+let val1 = 0
 let projektilVänlig: Sprite = null
 let fiender: Sprite = null
 let extraProjektiler = 0
-let val1 = 0
 let mySprite: Sprite = null
 mySprite = sprites.create(img`
     ........................
@@ -1579,7 +1576,6 @@ mySprite.setStayInScreen(true)
 scene.cameraFollowSprite(mySprite)
 mySprite.sayText(":)", 5000, true)
 characterAnimations.setCharacterAnimationsEnabled(mySprite, true)
-val1 = 0
 extraProjektiler = 0
 game.onUpdateInterval(2000, function () {
     fiender = sprites.create(img`

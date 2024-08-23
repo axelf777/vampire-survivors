@@ -1066,7 +1066,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         }
     }
 })
-info.onScore(100, function () {
+info.onScore(30, function () {
     game.setGameOverEffect(true, effects.confetti)
     game.gameOver(true)
 })
@@ -1103,9 +1103,11 @@ info.onScore(5, function () {
         extraProjektiler = 1
         start()
     } else if (val5 == 2) {
-        mySprite.setVelocity(150, 150)
+        val1 = 0
+        mySprite.setVelocity(250, 250)
         start()
-    } else if (false) {
+    } else if (val5 == 3) {
+        val1 = 0
         info.setLife(5)
         start()
     } else {
@@ -1622,4 +1624,5 @@ game.onUpdateInterval(1500, function () {
 forever(function () {
     rörelse()
     rörelse2()
+    music.play(music.stringPlayable("A F E F D G E F ", 120), music.PlaybackMode.UntilDone)
 })
